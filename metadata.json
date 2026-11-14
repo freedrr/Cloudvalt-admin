@@ -1,0 +1,6 @@
+{
+  "name": "Cloudvalt Admin Dashboard",
+  "description": "An admin dashboard for Cloudvalt.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
