@@ -1,14 +1,16 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA57yih9ROFRLRovV69h1PhACKLufAQxJc",
-  authDomain: "strange-bird-467010-q9.firebaseapp.com",
-  projectId: "strange-bird-467010-q9",
-  storageBucket: "strange-bird-467010-q9.firebasestorage.app",
-  messagingSenderId: "71375570323",
-  appId: "1:71375570323:web:70e7bc23622ef9cfdf1466"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyA57yih9ROFRLRovV69h1PhACKLufAQxJc",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "strange-bird-467010-q9.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "strange-bird-467010-q9",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "strange-bird-467010-q9.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "71375570323",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:71375570323:web:70e7bc23622ef9cfdf1466"
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
